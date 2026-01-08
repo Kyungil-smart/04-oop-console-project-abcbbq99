@@ -1,16 +1,14 @@
-﻿
-
-public class TownScene : Scene
+﻿public class TestScene : Scene
 {
     private Tile[,] _field = new Tile[10, 20];
     private PlayerCharacter _player;
-    
-    public TownScene(PlayerCharacter player) => Init(player);
+
+    public TestScene(PlayerCharacter player) => Init(player);
 
     public void Init(PlayerCharacter player)
     {
         _player = player;
-        
+
         for (int y = 0; y < _field.GetLength(0); y++)
         {
             for (int x = 0; x < _field.GetLength(1); x++)
@@ -26,10 +24,13 @@ public class TownScene : Scene
         _player.Field = _field;
         _player.Position = new Vector(4, 2);
         _field[_player.Position.Y, _player.Position.X].OnTileObject = _player;
-        
-        
-        
-        Debug.Log("타운 씬 진입");
+
+        _field[3, 5].OnTileObject = new Potion();
+        _field[2, 15].OnTileObject = new Potion();
+        _field[7, 3].OnTileObject = new Potion();
+        _field[9, 19].OnTileObject = new Potion();
+
+        Debug.Log("테스트 씬 진입");
     }
 
     public override void Update()
@@ -57,6 +58,7 @@ public class TownScene : Scene
             {
                 _field[y, x].Print();
             }
+
             Console.WriteLine();
         }
     }

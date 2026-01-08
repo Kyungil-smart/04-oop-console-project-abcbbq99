@@ -22,7 +22,38 @@ public struct Tile
     {
         if(HasGameObject)
         {
-            OnTileObject.Symbol.Print();
+            if(OnTileObject.Symbol == 'P')
+            {
+                OnTileObject.Symbol.Print(ConsoleColor.Green);
+            }
+            else if(OnTileObject.Symbol == '■')
+            {
+                OnTileObject.Symbol.Print(ConsoleColor.White);
+            }
+            else if(OnTileObject.Symbol == '▨' || OnTileObject.Symbol == '□')
+            {
+                OnTileObject.Symbol.Print(ConsoleColor.DarkRed);
+            }
+            else if(OnTileObject.Symbol == '◇' || OnTileObject.Symbol == '◆'|| OnTileObject.Symbol == '▩')
+            {
+                OnTileObject.Symbol.Print(ConsoleColor.Red);
+            }
+            else if(OnTileObject.Symbol == '▣')
+            {
+                OnTileObject.Symbol.Print(ConsoleColor.Blue);
+            }
+            else if(OnTileObject.Symbol == 'I')
+            {
+                OnTileObject.Symbol.Print(ConsoleColor.DarkYellow);
+            }
+            else if(OnTileObject.Symbol == 'C')
+            {
+                OnTileObject.Symbol.Print(ConsoleColor.Yellow);
+            }
+            else
+            {
+                OnTileObject.Symbol.Print();
+            }
         }
         else
         {

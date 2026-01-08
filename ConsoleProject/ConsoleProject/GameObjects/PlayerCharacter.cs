@@ -78,10 +78,16 @@ public class PlayerCharacter : GameObject
         Vector nextPos = Position + direction;
         
         // 1. 맵 바깥은 아닌지?
+        bool isOutOfField = nextPos.X < 0 || nextPos.X >= Field.GetLength(1) ||
+                            nextPos.Y < 0 || nextPos.Y >= Field.GetLength(0);
+        
+        if(isOutOfField) return;
+        
         // 2. 벽인지?
-
         GameObject nextTileObject = Field[nextPos.Y, nextPos.X].OnTileObject;
-
+        
+        if (nextTileObject != null && nextTileObject is IBlockable) return;
+        
         if (nextTileObject != null)
         {
             if (nextTileObject is IInteractable)
