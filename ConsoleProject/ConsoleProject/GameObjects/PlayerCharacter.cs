@@ -59,7 +59,7 @@ public class PlayerCharacter : GameObject
 
         if (InputManager.GetKey(ConsoleKey.T))
         {
-            Health.Value--;
+            TakeDamage(10);
         }
     }
 
@@ -124,28 +124,27 @@ public class PlayerCharacter : GameObject
         
         switch (health/(float)_maxHealthValue * 10f)
         {
-            case 10:
-            case 9:
+            case 10f:
+            case 9f:
                 _healthGauge = "■■■■■";
                 break;
-            case 8:
-            case 7:
+            case 8f:
+            case 7f:
                 _healthGauge = "■■■■□";
                 break;
-            case 6:
-            case 5:
+            case 6f:
+            case 5f:
                 _healthGauge = "■■■□□";
                 break;
-            case 4:
-            case 3:
+            case 4f:
+            case 3f:
                 _healthGauge = "■■□□□";
                 break;
-            case 2:
-            case 1:
+            case 2f:
+            case 1f:
                 _healthGauge = "■□□□□";
                 break;
-            case 0:
-                if (health == 0) GameManager.IsGameOver = true;
+            default:
                 _healthGauge = "□□□□□";
                 break;
         }
@@ -159,4 +158,15 @@ public class PlayerCharacter : GameObject
             Health.Value = _maxHealthValue;
         }
     }
+
+    public void TakeDamage(int value)
+    {
+        Health.Value -= value;
+        
+        if (Health.Value <= 0)
+        {
+            GameManager.IsGameOver = true;
+        }
+    }
+    
 }
