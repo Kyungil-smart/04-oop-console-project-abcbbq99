@@ -1,0 +1,15 @@
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\bin\Debug\net10.0\ConsoleProject.exe
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\bin\Debug\net10.0\ConsoleProject.deps.json
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\bin\Debug\net10.0\ConsoleProject.runtimeconfig.json
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\bin\Debug\net10.0\ConsoleProject.dll
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\bin\Debug\net10.0\ConsoleProject.pdb
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ConsoleProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ConsoleProject.AssemblyInfoInputs.cache
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ConsoleProject.AssemblyInfo.cs
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ConsoleProject.csproj.CoreCompileInputs.cache
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ConsoleProject.sourcelink.json
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ConsoleProject.dll
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\refint\ConsoleProject.dll
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ConsoleProject.pdb
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ConsoleProject.genruntimeconfig.cache
+C:\Users\FAMILY\OneDrive\Desktop\Bootcamp\Github\04-oop-console-project-abcbbq99\ConsoleProject\ConsoleProject\obj\Debug\net10.0\ref\ConsoleProject.dll
