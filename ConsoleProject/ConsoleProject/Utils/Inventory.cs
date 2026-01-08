@@ -5,6 +5,7 @@ public class Inventory
     public bool IsActive { get; set; }
     public MenuList _itemMenu = new MenuList();
     private PlayerCharacter _owner;
+    private int Gold { get; set; }
     
     public Inventory(PlayerCharacter owner)
     {

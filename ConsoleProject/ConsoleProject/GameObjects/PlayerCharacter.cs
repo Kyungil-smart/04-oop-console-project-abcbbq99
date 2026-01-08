@@ -4,10 +4,9 @@ using System.Runtime.InteropServices.Marshalling;
 
 public class PlayerCharacter : GameObject
 {
-    public ObservableProperty<int> Health = new ObservableProperty<int>(5);
-    public ObservableProperty<int> Mana = new ObservableProperty<int>(5);
+    public ObservableProperty<int> Health = new ObservableProperty<int>(_maxHealthValue);
+    public const int _maxHealthValue = 100;
     private string _healthGauge;
-    private string _manaGauge;
     
     public Tile[,] Field { get; set; }
     private Inventory _inventory;
@@ -20,9 +19,7 @@ public class PlayerCharacter : GameObject
         Symbol = 'P';
         IsActiveControl = true;
         Health.AddListener(SetHealthGauge);
-        Mana.AddListener(SetManaGauge);
         _healthGauge = "■■■■■";
-        _manaGauge = "■■■■■";
         _inventory = new Inventory(this);
     }
 
@@ -101,7 +98,6 @@ public class PlayerCharacter : GameObject
     public void Render()
     {
         DrawHealthGauge();
-        DrawManaGauge();
         _inventory.Render();
     }
 
@@ -110,58 +106,41 @@ public class PlayerCharacter : GameObject
         _inventory.Add(item);
     }
 
-    public void DrawManaGauge()
-    {
-        Console.SetCursorPosition(Position.X - 2, Position.Y - 1);
-        _healthGauge.Print(ConsoleColor.Blue);
-    }
-
     public void DrawHealthGauge()
     {
-        Console.SetCursorPosition(Position.X - 2, Position.Y - 2);
+        Console.SetCursorPosition(0, 22);
+        Console.Write("체력 : ");
         _healthGauge.Print(ConsoleColor.Red);
     }
 
     public void SetHealthGauge(int health)
     {
-        switch (health)
+        
+        switch (health/(float)_maxHealthValue * 10f)
         {
-            case 5:
+            case 10:
+            case 9:
                 _healthGauge = "■■■■■";
                 break;
-            case 4:
+            case 8:
+            case 7:
                 _healthGauge = "■■■■□";
                 break;
-            case 3:
+            case 6:
+            case 5:
                 _healthGauge = "■■■□□";
                 break;
-            case 2:
+            case 4:
+            case 3:
                 _healthGauge = "■■□□□";
                 break;
+            case 2:
             case 1:
                 _healthGauge = "■□□□□";
                 break;
-        }
-    }
-
-    public void SetManaGauge(int mana)
-    {
-        switch (mana)
-        {
-            case 5:
-                _healthGauge = "■■■■■";
-                break;
-            case 4:
-                _healthGauge = "■■■■□";
-                break;
-            case 3:
-                _healthGauge = "■■■□□";
-                break;
-            case 2:
-                _healthGauge = "■■□□□";
-                break;
-            case 1:
-                _healthGauge = "■□□□□";
+            case 0:
+                if (health == 0) GameManager.IsGameOver = true;
+                _healthGauge = "□□□□□";
                 break;
         }
     }
@@ -169,5 +148,9 @@ public class PlayerCharacter : GameObject
     public void Heal(int value)
     {
         Health.Value += value;
+        if (Health.Value > _maxHealthValue)
+        {
+            Health.Value = _maxHealthValue;
+        }
     }
 }
