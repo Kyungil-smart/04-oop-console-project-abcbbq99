@@ -29,7 +29,7 @@ public class TownScene : Scene
         
         
         
-        Debug.Log("타운 씬 진입");
+        Debug.Log("-----타운 씬 진입-----");
     }
 
     public override void Update()
@@ -47,6 +47,7 @@ public class TownScene : Scene
     {
         _field[_player.Position.Y, _player.Position.X].OnTileObject = null;
         _player.Field = null;
+        Debug.Log("-----타운 씬 퇴장-----");
     }
 
     private void PrintField()

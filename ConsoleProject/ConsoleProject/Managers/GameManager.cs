@@ -20,6 +20,7 @@ public class GameManager
 
             if (InputManager.GetKey(ConsoleKey.L))
             {
+                SceneManager.isSceneReset = false;
                 SceneManager.Change("Log");
             }
 
@@ -40,6 +41,8 @@ public class GameManager
         SceneManager.AddScene("Test", new TestScene(_player));
         
         SceneManager.AddScene("Log", new LogScene());
+
+        SceneManager.isSceneReset = true;
         
         SceneManager.Change("Title");
         

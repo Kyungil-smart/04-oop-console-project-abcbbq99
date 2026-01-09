@@ -67,7 +67,7 @@ public class PlayerCharacter : GameObject
     {
         _inventory.IsActive = !_inventory.IsActive;
         IsActiveControl = !_inventory.IsActive;
-        Debug.LogWarning($"{_inventory._itemMenu.CurrentIndex}");
+        Debug.Log("-----인벤토리 개방-----");
     }
 
     private void Move(Vector direction)
@@ -156,15 +156,23 @@ public class PlayerCharacter : GameObject
         if (Health.Value > _maxHealthValue)
         {
             Health.Value = _maxHealthValue;
+            Debug.LogWarning("플레이어 회복량 초과 : 체력 조정");
+        }
+        else
+        {
+            Debug.Log($"플레이어 : {value} 회복");
         }
     }
 
     public void TakeDamage(int value)
     {
         Health.Value -= value;
+        Debug.Log($"플레이어 : {value} 피해");
         
         if (Health.Value <= 0)
         {
+            Console.Clear();
+            "당신은 죽었습니다".Print(ConsoleColor.Red);
             GameManager.IsGameOver = true;
         }
     }

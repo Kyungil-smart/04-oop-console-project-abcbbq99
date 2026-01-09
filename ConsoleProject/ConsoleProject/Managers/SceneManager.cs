@@ -5,6 +5,7 @@ public static class SceneManager
     public static Action OnChangeScene;
     public static Scene Current { get; private set; }
     private static Scene _prev;
+    public static bool isSceneReset { get; set; }
 
     private static Dictionary<string, Scene> _scenes = new Dictionary<string, Scene>();
 
