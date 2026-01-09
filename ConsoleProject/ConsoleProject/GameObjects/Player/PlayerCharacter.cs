@@ -10,12 +10,16 @@ public class PlayerCharacter : GameObject
     public int DefenceValue { get; set; }
     public int CritValue { get; set; }
     public int CritDefValue { get; set; }
+    
     private string _healthGauge;
     
     public Tile[,] Field { get; set; }
+    public BattleLog _battleLog { get; set; }
+    
     private Inventory _inventory;
     private PlayerSkill _skill;
     private BattleList _battleList;
+    
     public bool IsActiveControl { get; set; }
 
     public PlayerCharacter() => Init();
@@ -182,15 +186,18 @@ public class PlayerCharacter : GameObject
             {
                 Health.Value = _maxHealthValue;
                 Debug.LogWarning("플레이어 회복량 초과 : 체력 조정");
+                _battleLog.Heal($"플레이어 : {value} 회복");
             }
             else
             {
                 Debug.Log($"플레이어 : {value} 회복");
+                _battleLog.Heal($"플레이어 : {value} 회복");
             }
         }
         else if(value < 0)
         {
-            Debug.Log($"플레이어 : {value} 피해");
+            Debug.Log($"플레이어 : {(-1) * value} 피해");
+            _battleLog.Damage($"플레이어 : {(-1) * value} 피해");
         
             if (Health.Value <= 0)
             {

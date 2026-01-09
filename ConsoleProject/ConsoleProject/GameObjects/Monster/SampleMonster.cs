@@ -25,26 +25,34 @@ public class SampleMonster : Monster, IInteractable
             {
                 Health = MaxHealth;
                 Debug.LogWarning($"{Name} : 회복량 초과 - 체력 조정");
+                _battleLog.Heal($"{Name} : {value} 회복");
             }
             else
             {
                 Debug.Log($"{Name} : {value} 회복");
+                _battleLog.Heal($"{Name} : {value} 회복");
             }
         }
         else if(value < 0)
         {
             Debug.Log($"{Name} : {(-1)*value} 피해");
+            _battleLog.Damage($"{Name} : {(-1)*value} 피해");
         
             if (Health <= 0)
             {
+                BattleList.Remove(this);
+                BattleList = null;
+                Player = null;
+                
                 Debug.Log($"{Name} : 사망");
+                _battleLog.Death($"{Name} : 사망");
             }
         }
     }
     
     public void Interact(PlayerCharacter player)
     {
-        player.AddBattleList(this);
+        Player.AddBattleList(this);
         SceneManager.isSceneReset = false;
         Debug.LogWarning("씬 초기화 중지");
         SceneManager.Change("Battle");

@@ -14,6 +14,7 @@ public class TitleScene : Scene
         _titleMenu = new MenuList();
         _titleMenu.Add("게임 시작", GameStart);
         _titleMenu.Add("크레딧", ViewCredits);
+        _titleMenu.Add("테스트", Test);
         _titleMenu.Add("게임 종료", GameQuit);
     }
 
@@ -61,10 +62,15 @@ public class TitleScene : Scene
 
     public void GameStart()
     {
-        SceneManager.Change("Test");
+        SceneManager.Change("Story");
     }
 
     public void ViewCredits()
     {
+    }
+    
+    public void Test()
+    {
+        SceneManager.Change("Test");
     }
 }

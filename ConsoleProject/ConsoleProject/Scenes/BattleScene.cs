@@ -4,6 +4,7 @@ public class BattleScene : Scene
     public PlayerCharacter _player { get;}
     public BattleList _battleList { get;}
     public PlayerSkill _skillList { get;}
+    public BattleLog _battleLog{ get;}
     
     public BattleScene()
     {
@@ -22,6 +23,8 @@ public class BattleScene : Scene
         _battleList.IsActive = true;
         _skillList.IsActive = false;
         Debug.Log("-----전투창 진입-----");
+        _battleLog.Log("-----전투창 진입-----");
+        
     }
     
     public override void Update()
@@ -53,6 +56,7 @@ public class BattleScene : Scene
 
     public override void Render()
     {
+        _battleLog.Render();
         _battleList.Render();
         _skillList.Render();
     }
@@ -60,5 +64,6 @@ public class BattleScene : Scene
     public override void Exit()
     {
         Debug.Log("-----전투창 퇴장-----");
+        _battleLog.Log("-----전투창 퇴장-----");
     }
 }
