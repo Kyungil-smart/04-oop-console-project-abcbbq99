@@ -12,7 +12,7 @@ public class Potion : Item, IInteractable
 
     public override void Use()
     {
-        Owner.Heal(10);
+        Owner.ChangeHealth(10);
         
         Inventory.Remove(this);
         Inventory = null;

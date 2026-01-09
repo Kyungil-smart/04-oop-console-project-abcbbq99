@@ -1,28 +1,37 @@
 ﻿
-public class MonsterInventory
+public class BattleList
 {
     private List<Monster> _monsters = new List<Monster>();
     public bool IsActive { get; set; }
-    public MonsterList _monsterList = new MonsterList();
+    public MenuList _monsterList = new MenuList();
     private PlayerCharacter _owner;
-    private int Gold { get; set; }
+    public PlayerSkill playerSkill { get; set; }
     
-    public MonsterInventory(PlayerCharacter owner)
+    public BattleList(PlayerCharacter owner)
     {
         _owner = owner;
+    }
+    
+    private void PlayerSkillToggle()
+    {
+        playerSkill.IsActive = !playerSkill.IsActive;
     }
 
     public void Add(Monster monster)
     {
+        _monsters.Add(monster);
+        _monsterList.Add(monster.Name, PlayerSkillToggle);
+        monster.BattleList = this;
+        monster.Player = _owner;
         
-        Debug.Log($"인벤토리 : {monster} 추가");
+        Debug.Log($"전투목록 : {monster} 추가");
     }
 
     public void Remove(Monster monster)
     {
         _monsters.Remove(monster);
         _monsterList.Remove();
-        Debug.Log($"인벤토리 : {monster} 삭제");
+        Debug.Log($"전투목록 : {monster} 삭제");
     }
 
     public void Render()

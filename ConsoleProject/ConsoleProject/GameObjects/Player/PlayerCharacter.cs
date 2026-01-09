@@ -14,6 +14,7 @@ public class PlayerCharacter : GameObject
     
     public Tile[,] Field { get; set; }
     private Inventory _inventory;
+    private PlayerSkill _skill;
     public bool IsActiveControl { get; private set; }
 
     public PlayerCharacter() => Init();
@@ -25,7 +26,9 @@ public class PlayerCharacter : GameObject
         Health.AddListener(SetHealthGauge);
         _healthGauge = "■■■■■";
         _inventory = new Inventory(this);
-        AttackValue = 1;
+        _skill = new PlayerSkill(this);
+        
+        AttackValue = 10;
         DefenceValue = 0;
         CritValue = 10;
         CritDefValue = 0;
@@ -67,7 +70,7 @@ public class PlayerCharacter : GameObject
 
         if (InputManager.GetKey(ConsoleKey.T))
         {
-            TakeDamage(10);
+            ChangeHealth(-10);
         }
     }
 
@@ -119,6 +122,11 @@ public class PlayerCharacter : GameObject
     {
         _inventory.Add(item);
     }
+    
+    public void AddSkill(Skill skill)
+    {
+        _skill.Add(skill);
+    }
 
     public void DrawHealthGauge()
     {
@@ -157,31 +165,32 @@ public class PlayerCharacter : GameObject
                 break;
         }
     }
-
-    public void Heal(int value)
+    
+    public void ChangeHealth(int value)
     {
         Health.Value += value;
-        if (Health.Value > _maxHealthValue)
+        if (value > 0)
         {
-            Health.Value = _maxHealthValue;
-            Debug.LogWarning("플레이어 회복량 초과 : 체력 조정");
+            if (Health.Value > _maxHealthValue)
+            {
+                Health.Value = _maxHealthValue;
+                Debug.LogWarning("플레이어 회복량 초과 : 체력 조정");
+            }
+            else
+            {
+                Debug.Log($"플레이어 : {value} 회복");
+            }
         }
-        else
+        else if(value < 0)
         {
-            Debug.Log($"플레이어 : {value} 회복");
-        }
-    }
-
-    public void TakeDamage(int value)
-    {
-        Health.Value -= value;
-        Debug.Log($"플레이어 : {value} 피해");
+            Debug.Log($"플레이어 : {value} 피해");
         
-        if (Health.Value <= 0)
-        {
-            Console.Clear();
-            "당신은 죽었습니다".Print(ConsoleColor.Red);
-            GameManager.IsGameOver = true;
+            if (Health.Value <= 0)
+            {
+                Console.Clear();
+                "당신은 죽었습니다".Print(ConsoleColor.Red);
+                GameManager.IsGameOver = true;
+            }
         }
     }
     

@@ -3,6 +3,7 @@
 public abstract class Monster : GameObject
 {
     public PlayerCharacter Player { get; set; }
+    public BattleList BattleList { get; set; }
     
     public int Health { get; set; }
     public int MaxHealth { get; set; }
