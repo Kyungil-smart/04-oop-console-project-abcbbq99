@@ -2,8 +2,6 @@
 
 public class Trap : GameObject, IInteractable
 {
-    public PlayerCharacter Owner { get; set; }
-    
     public Trap() => Init();
     
     private void Init()
@@ -13,6 +11,6 @@ public class Trap : GameObject, IInteractable
     
     public void Interact(PlayerCharacter player)
     {
-        
+        player.TakeDamage(10);
     }
 }
