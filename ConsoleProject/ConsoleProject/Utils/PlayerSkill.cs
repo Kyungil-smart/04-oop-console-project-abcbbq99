@@ -5,7 +5,6 @@ public class PlayerSkill
     public bool IsActive { get; set; }
     public MenuList _skillMenu = new MenuList();
     private PlayerCharacter _owner;
-    private int Gold { get; set; }
     
     public PlayerSkill(PlayerCharacter owner)
     {

@@ -1,11 +1,12 @@
 ﻿
 public class BattleList
 {
+    public PlayerSkill _skillMenu { get; }
     private List<Monster> _monsters = new List<Monster>();
     public bool IsActive { get; set; }
     public MenuList _monsterList = new MenuList();
     private PlayerCharacter _owner;
-    public PlayerSkill playerSkill { get; set; }
+    public PlayerSkill playerSkill { get; }
     
     public BattleList(PlayerCharacter owner)
     {
@@ -43,19 +44,19 @@ public class BattleList
 
     public void Select()
     {
-        if(!IsActive) return;
+        if(!IsActive || _skillMenu.IsActive) return;
         _monsterList.Select();
     }
 
     public void SelectUp()
     {
-        if(!IsActive) return;
+        if(!IsActive || _skillMenu.IsActive) return;
         _monsterList.SelectUp();
     }
 
     public void SelectDown()
     {
-        if(!IsActive) return;
+        if(!IsActive || _skillMenu.IsActive) return;
         _monsterList.SelectDown();
     }
 }

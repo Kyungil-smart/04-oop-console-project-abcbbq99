@@ -15,7 +15,8 @@ public class PlayerCharacter : GameObject
     public Tile[,] Field { get; set; }
     private Inventory _inventory;
     private PlayerSkill _skill;
-    public bool IsActiveControl { get; private set; }
+    private BattleList _battleList;
+    public bool IsActiveControl { get; set; }
 
     public PlayerCharacter() => Init();
 
@@ -27,6 +28,7 @@ public class PlayerCharacter : GameObject
         _healthGauge = "■■■■■";
         _inventory = new Inventory(this);
         _skill = new PlayerSkill(this);
+        _battleList = new BattleList(this);
         
         AttackValue = 10;
         DefenceValue = 0;
@@ -126,6 +128,11 @@ public class PlayerCharacter : GameObject
     public void AddSkill(Skill skill)
     {
         _skill.Add(skill);
+    }
+    
+    public void AddBattleList(Monster monster)
+    {
+        _battleList.Add(monster);
     }
 
     public void DrawHealthGauge()

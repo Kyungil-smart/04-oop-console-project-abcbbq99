@@ -1,6 +1,6 @@
 ﻿
 
-public class SampleMonster : Monster
+public class SampleMonster : Monster, IInteractable
 {
     public SampleMonster() => Init();
     
@@ -40,6 +40,14 @@ public class SampleMonster : Monster
                 Debug.Log($"{Name} : 사망");
             }
         }
+    }
+    
+    public void Interact(PlayerCharacter player)
+    {
+        player.AddBattleList(this);
+        SceneManager.isSceneReset = false;
+        Debug.LogWarning("씬 초기화 중지");
+        SceneManager.Change("Battle");
     }
     
     public override void Skill()
