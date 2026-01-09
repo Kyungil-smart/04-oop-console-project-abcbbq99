@@ -13,6 +13,6 @@ public class MonsterSampleAttackSkill : Skill
     public override void Effect()
     {
         int value = Monster.AttackValue * Power;
-        Player.ChangeHealth((-1) * value);
+        Player.TakeDamage(value);
     }
 }

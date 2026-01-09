@@ -76,7 +76,7 @@ public class PlayerCharacter : GameObject
 
         if (InputManager.GetKey(ConsoleKey.T))
         {
-            ChangeHealth(-10);
+            TakeDamage(10);
         }
     }
 
@@ -177,7 +177,7 @@ public class PlayerCharacter : GameObject
         }
     }
     
-    public void ChangeHealth(int value)
+    public void Heal(int value)
     {
         Health.Value += value;
         if (value > 0)
@@ -194,17 +194,19 @@ public class PlayerCharacter : GameObject
                 _battleLog.Heal($"플레이어 : {value} 회복");
             }
         }
-        else if(value < 0)
-        {
-            Debug.Log($"플레이어 : {(-1) * value} 피해");
-            _battleLog.Damage($"플레이어 : {(-1) * value} 피해");
+    }
+    public void TakeDamage(int value)
+    {
+        Health.Value -= value;
         
-            if (Health.Value <= 0)
-            {
-                Console.Clear();
-                "당신은 죽었습니다".Print(ConsoleColor.Red);
-                GameManager.IsGameOver = true;
-            }
+        Debug.Log($"플레이어 : {value} 피해");
+        _battleLog.Damage($"플레이어 : {value} 피해");
+        
+        if (Health.Value <= 0)
+        {
+            Console.Clear();
+            "당신은 죽었습니다".Print(ConsoleColor.Red);
+            GameManager.IsGameOver = true;
         }
     }
     

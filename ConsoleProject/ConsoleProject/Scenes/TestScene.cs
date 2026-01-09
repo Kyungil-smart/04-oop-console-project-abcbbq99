@@ -30,7 +30,7 @@
             _field[3, 5].OnTileObject = new Potion();
             _field[2, 15].OnTileObject = new Trap();
             _field[7, 3].OnTileObject = new Wall();
-            _field[9, 19].OnTileObject = new SampleMonster();
+            _field[9, 15].OnTileObject = new SampleMonster();
             
             Debug.LogWarning("테스트 씬 초기화 완료");
         }

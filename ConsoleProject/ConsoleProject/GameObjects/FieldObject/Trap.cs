@@ -11,6 +11,6 @@ public class Trap : GameObject, IInteractable
     
     public void Interact(PlayerCharacter player)
     {
-        player.ChangeHealth(-10);
+        player.TakeDamage(10);
     }
 }
