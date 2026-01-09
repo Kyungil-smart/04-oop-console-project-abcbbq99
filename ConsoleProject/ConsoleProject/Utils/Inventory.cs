@@ -20,12 +20,14 @@ public class Inventory
         _itemMenu.Add(item.Name, item.Use);
         item.Inventory = this;
         item.Owner = _owner;
+        Debug.Log($"인벤토리 : {item} 추가");
     }
 
     public void Remove(Item item)
     {
         _items.Remove(item);
         _itemMenu.Remove();
+        Debug.Log($"인벤토리 : {item} 삭제");
     }
 
     public void Render()

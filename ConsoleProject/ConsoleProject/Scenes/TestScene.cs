@@ -21,16 +21,24 @@
 
     public override void Enter()
     {
-        _player.Field = _field;
-        _player.Position = new Vector(4, 2);
-        _field[_player.Position.Y, _player.Position.X].OnTileObject = _player;
+        if (SceneManager.isSceneReset)
+        {
+            _player.Field = _field;
+            _player.Position = new Vector(4, 2);
+            _field[_player.Position.Y, _player.Position.X].OnTileObject = _player;
 
-        _field[3, 5].OnTileObject = new Potion();
-        _field[2, 15].OnTileObject = new Trap();
-        _field[7, 3].OnTileObject = new Wall();
-        _field[9, 19].OnTileObject = new Potion();
-
-        Debug.Log("테스트 씬 진입");
+            _field[3, 5].OnTileObject = new Potion();
+            _field[2, 15].OnTileObject = new Trap();
+            _field[7, 3].OnTileObject = new Wall();
+            _field[9, 19].OnTileObject = new Potion();
+            Debug.LogWarning("테스트 씬 초기화 완료");
+        }
+        else
+        {
+            Debug.LogWarning("테스트 씬 초기화 안됨");
+        }
+        
+        Debug.Log("-----테스트 씬 진입-----");
     }
 
     public override void Update()
@@ -46,8 +54,17 @@
 
     public override void Exit()
     {
-        _field[_player.Position.Y, _player.Position.X].OnTileObject = null;
-        _player.Field = null;
+        if (SceneManager.isSceneReset)
+        {
+            _field[_player.Position.Y, _player.Position.X].OnTileObject = null;
+            _player.Field = null;
+            Debug.LogWarning("플레이어 위치 참조 삭제");
+        }
+        else
+        {
+            Debug.LogWarning("플레이어 위치 참조 유지");
+        }
+        Debug.Log("-----테스트 씬 퇴장-----");
     }
 
     private void PrintField()

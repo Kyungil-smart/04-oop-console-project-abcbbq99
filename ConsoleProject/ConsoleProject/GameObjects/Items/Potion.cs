@@ -17,6 +17,8 @@ public class Potion : Item, IInteractable
         Inventory.Remove(this);
         Inventory = null;
         Owner = null;
+        
+        Debug.Log($"아이템 : {Name} 사용");
     }
 
     public void Interact(PlayerCharacter player)

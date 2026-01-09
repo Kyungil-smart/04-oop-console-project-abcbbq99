@@ -15,6 +15,13 @@ public class LogScene : Scene
         Debug.Render();
     }
 
-    public override void Enter() { }
-    public override void Exit() { }
+    public override void Enter()
+    {
+        Debug.Log("-----로그창 진입-----");
+    }
+
+    public override void Exit()
+    {
+        Debug.Log("-----로그창 퇴장-----");
+    }
 }
