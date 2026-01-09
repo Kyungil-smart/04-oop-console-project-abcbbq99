@@ -114,7 +114,7 @@ public class PlayerCharacter : GameObject
 
     public void DrawHealthGauge()
     {
-        Console.SetCursorPosition(0, 22);
+        Console.SetCursorPosition(0, 0);
         Console.Write("체력 : ");
         _healthGauge.Print(ConsoleColor.Red);
     }

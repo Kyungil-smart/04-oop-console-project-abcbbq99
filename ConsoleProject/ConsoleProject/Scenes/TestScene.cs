@@ -69,6 +69,7 @@
 
     private void PrintField()
     {
+        Console.SetCursorPosition(0,2);
         for (int y = 0; y < _field.GetLength(0); y++)
         {
             for (int x = 0; x < _field.GetLength(1); x++)

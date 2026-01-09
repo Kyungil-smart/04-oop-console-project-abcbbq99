@@ -61,7 +61,7 @@ public class TitleScene : Scene
 
     public void GameStart()
     {
-        SceneManager.Change("Test");
+        SceneManager.Change("Story");
     }
 
     public void ViewCredits()
