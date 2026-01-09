@@ -25,10 +25,10 @@
         _player.Position = new Vector(4, 2);
         _field[_player.Position.Y, _player.Position.X].OnTileObject = _player;
 
-        _field[3, 5].OnTileObject = new Potion(10);
-        _field[2, 15].OnTileObject = new Potion(10);
-        _field[7, 3].OnTileObject = new Potion(10);
-        _field[9, 19].OnTileObject = new Potion(10);
+        _field[3, 5].OnTileObject = new Potion();
+        _field[2, 15].OnTileObject = new Potion();
+        _field[7, 3].OnTileObject = new Potion();
+        _field[9, 19].OnTileObject = new Potion();
 
         Debug.Log("테스트 씬 진입");
     }

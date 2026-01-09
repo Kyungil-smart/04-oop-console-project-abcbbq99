@@ -2,21 +2,17 @@
 
 public class Potion : Item, IInteractable
 {
-    private int HealingPoint;
-    public Potion(int value) => Init(value);
+    public Potion() => Init();
     
-    private void Init(int value)
+    private void Init()
     {
         Symbol = 'I';
         Name = "Potion";
-        HealingPoint = value;
-        Description = $"{HealingPoint} 만큼 치유";
-        
     }
 
     public override void Use()
     {
-        Owner.Heal(HealingPoint);
+        Owner.Heal(10);
         
         Inventory.Remove(this);
         Inventory = null;

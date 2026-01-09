@@ -3,18 +3,16 @@
 public class Trap : GameObject, IInteractable
 {
     public PlayerCharacter Owner { get; set; }
-    private int TrapDamage;
     
-    public Trap(int damage) => Init(damage);
+    public Trap() => Init();
     
-    private void Init(int damage)
+    private void Init()
     {
         Symbol = '▩';
-        TrapDamage = damage;
     }
     
     public void Interact(PlayerCharacter player)
     {
-        Owner.TakeDamage(TrapDamage);
+        
     }
 }
