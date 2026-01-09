@@ -1,11 +1,10 @@
 ﻿
-
-public class TownScene : Scene
+public class RuinsScene : Scene
 {
     private Tile[,] _field = new Tile[10, 20];
     private PlayerCharacter _player;
     
-    public TownScene(PlayerCharacter player) => Init(player);
+    public RuinsScene(PlayerCharacter player) => Init(player);
 
     public void Init(PlayerCharacter player)
     {
@@ -42,14 +41,14 @@ public class TownScene : Scene
                 }
             }
             
-            Debug.LogWarning("타운 씬 초기화 완료");
+            Debug.LogWarning("폐허 씬 초기화 완료");
         }
         else
         {
-            Debug.LogWarning("타운 씬 초기화 안됨");
+            Debug.LogWarning("폐허 씬 초기화 안됨");
         }
         
-        Debug.Log("-----타운 씬 진입-----");
+        Debug.Log("-----폐허 씬 진입-----");
         SceneManager.isSceneReset = true;
         Debug.LogWarning("씬 초기화 작동");
     }
@@ -77,7 +76,7 @@ public class TownScene : Scene
         {
             Debug.LogWarning("플레이어 위치 참조 유지");
         }
-        Debug.Log("-----타운 씬 퇴장-----");
+        Debug.Log("-----폐허 씬 퇴장-----");
     }
 
     private void PrintField()

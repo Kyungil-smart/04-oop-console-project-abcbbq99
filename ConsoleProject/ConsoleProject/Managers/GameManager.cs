@@ -21,6 +21,7 @@ public class GameManager
             if (InputManager.GetKey(ConsoleKey.L))
             {
                 SceneManager.isSceneReset = false;
+                Debug.LogWarning("씬 초기화 중지");
                 SceneManager.Change("Log");
             }
 

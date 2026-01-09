@@ -31,6 +31,7 @@
             _field[2, 15].OnTileObject = new Trap();
             _field[7, 3].OnTileObject = new Wall();
             _field[9, 19].OnTileObject = new Potion();
+            
             Debug.LogWarning("테스트 씬 초기화 완료");
         }
         else
@@ -39,6 +40,8 @@
         }
         
         Debug.Log("-----테스트 씬 진입-----");
+        SceneManager.isSceneReset = true;
+        Debug.LogWarning("씬 초기화 작동");
     }
 
     public override void Update()

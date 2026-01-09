@@ -24,23 +24,33 @@ public class TempScene : Scene
 
     public override void Enter()
     {
-        _player.Field = _field;
-        _player.Position = new Vector(4, 2);
-        _field[_player.Position.Y, _player.Position.X].OnTileObject = _player;
-        
-        for (int y = 0; y < _field.GetLength(0); y++)
+        if (SceneManager.isSceneReset)
         {
-            for (int x = 0; x < _field.GetLength(1); x++)
+            _player.Field = _field;
+            _player.Position = new Vector(4, 2);
+            _field[_player.Position.Y, _player.Position.X].OnTileObject = _player;
+
+            for (int y = 0; y < _field.GetLength(0); y++)
             {
-                _field[0, x].OnTileObject = new Wall();
-                _field[_field.GetLength(0) - 1, x].OnTileObject = new Wall();
-                _field[y, 0].OnTileObject = new Wall();
-                _field[y, _field.GetLength(1) - 1].OnTileObject = new Wall();
+                for (int x = 0; x < _field.GetLength(1); x++)
+                {
+                    _field[0, x].OnTileObject = new Wall();
+                    _field[_field.GetLength(0) - 1, x].OnTileObject = new Wall();
+                    _field[y, 0].OnTileObject = new Wall();
+                    _field[y, _field.GetLength(1) - 1].OnTileObject = new Wall();
+                }
             }
+            
+            Debug.LogWarning("XX 씬 초기화 완료");
+        }
+        else
+        {
+            Debug.LogWarning("XX 씬 초기화 안됨");
         }
         
-        
         Debug.Log("-----XX 씬 진입-----");
+        SceneManager.isSceneReset = true;
+        Debug.LogWarning("씬 초기화 작동");
     }
 
     public override void Update()
@@ -56,8 +66,16 @@ public class TempScene : Scene
 
     public override void Exit()
     {
-        _field[_player.Position.Y, _player.Position.X].OnTileObject = null;
-        _player.Field = null;
+        if (SceneManager.isSceneReset)
+        {
+            _field[_player.Position.Y, _player.Position.X].OnTileObject = null;
+            _player.Field = null;
+            Debug.LogWarning("플레이어 위치 참조 삭제");
+        }
+        else
+        {
+            Debug.LogWarning("플레이어 위치 참조 유지");
+        }
         Debug.Log("-----XX 씬 퇴장-----");
     }
 
