@@ -1,10 +1,10 @@
 ﻿
-public class TempScene : Scene
+public class SampleFieldScene : Scene
 {
     private Tile[,] _field = new Tile[10, 20];
     private PlayerCharacter _player;
     
-    public TempScene(PlayerCharacter player) => Init(player);
+    public SampleFieldScene(PlayerCharacter player) => Init(player);
 
     public void Init(PlayerCharacter player)
     {

@@ -15,9 +15,10 @@ for (int y = 0; y < _field.GetLength(0); y++)
         }
 ```
 
-### 
+### 씬 전환 시에 초기화 안해야되면 초기화 직전에 해당 코드 삽입
 ``` csharp
-
+SceneManager.isSceneReset = false;
+Debug.LogWarning("씬 초기화 중지");
 ```
 
 ### 

@@ -6,6 +6,10 @@ public class PlayerCharacter : GameObject
 {
     public ObservableProperty<int> Health = new ObservableProperty<int>(_maxHealthValue);
     public const int _maxHealthValue = 100;
+    public int AttackValue { get; set; }
+    public int DefenceValue { get; set; }
+    public int CritValue { get; set; }
+    public int CritDefValue { get; set; }
     private string _healthGauge;
     
     public Tile[,] Field { get; set; }
@@ -21,6 +25,10 @@ public class PlayerCharacter : GameObject
         Health.AddListener(SetHealthGauge);
         _healthGauge = "■■■■■";
         _inventory = new Inventory(this);
+        AttackValue = 1;
+        DefenceValue = 0;
+        CritValue = 10;
+        CritDefValue = 0;
     }
 
     public void Update()
